@@ -5,8 +5,6 @@ interface SearchFieldProps {
   isLoading: boolean;
 }
 const SearchField: React.FC<SearchFieldProps> = ({ onSearch, isLoading }) => {
-  console.log(isLoading);
-
   return (
     <div className="input-group position-relative">
       <input
@@ -15,8 +13,11 @@ const SearchField: React.FC<SearchFieldProps> = ({ onSearch, isLoading }) => {
         onChange={(e) => onSearch(e.target.value)}
       />
       {isLoading && (
-        <span className="position-absolute" style={{ top: 3, right: 5 }}>
-          <div className="spinner-border" role="status" />
+        <span
+          className="position-absolute  m-1"
+          style={{ right: 5, zIndex: 10000 }}
+        >
+          <div className="spinner-border spinner-border-small" role="status" />
         </span>
       )}
     </div>
